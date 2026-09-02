@@ -26,10 +26,9 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y \
-            git zip unzip autoconf libtool pkg-config \
-            zlib1g-dev libncurses5-dev libncursesw5-dev \
-            cmake libffi-dev libssl-dev automake \
-            gettext
+            git zip unzip autoconf automake libtool libltdl-dev \
+            pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev \
+            cmake libffi-dev libssl-dev gettext
 
       - name: Install Buildozer
         run: |
@@ -37,10 +36,9 @@ jobs:
           pip install buildozer
           pip install "cython==0.29.34"
 
-      - name: Accept Android SDK licenses
+      - name: Build StudyVerse APK
         run: |
-          mkdir -p ~/.buildozer
-          echo "y" | buildozer android debug 2>&1 | tee build.log
+          buildozer android debug
 
       - name: Upload APK
         if: success()
