@@ -9,7 +9,7 @@ source.main = main.py
 
 version = 1.0
 
-requirements = python3==3.13.5,kivy==2.3.1
+requirements = python3==3.11.6,hostpython3==3.11.6,kivy==2.3.1
 
 source.include_exts = py,json,png,jpg,jpeg,kv,atlas
 
